@@ -33,5 +33,6 @@ json_response([
         'id' => (int)$user['id'],
         'nome' => $user['nome'],
         'email' => $user['email'],
+        'cargo' => $user['cargo']
     ],
 ]);

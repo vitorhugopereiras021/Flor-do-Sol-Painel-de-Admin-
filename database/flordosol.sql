@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     senha_hash VARCHAR(255) NOT NULL,
+    cargo VARCHAR(5) NOT NULL,
     telefone VARCHAR(20) DEFAULT NULL,
     token VARCHAR(64) DEFAULT NULL,
     token_expires DATETIME DEFAULT NULL,

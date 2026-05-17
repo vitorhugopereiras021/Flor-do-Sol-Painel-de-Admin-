@@ -30,7 +30,7 @@ if ($stmt->fetch()) {
 
 $hash = password_hash($senha, PASSWORD_DEFAULT);
 
-$stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha_hash) VALUES (?, ?, ?)");
-$stmt->execute([$nome, $email, $hash]);
+$stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha_hash, cargo) VALUES (?, ?, ?, ?)");
+$stmt->execute([$nome, $email, $hash, 'viewe']);
 
 json_response(['mensagem' => 'Conta criada com sucesso! Faça login para continuar.'], 201);

@@ -56,6 +56,23 @@ function updateAuthUI() {
             loginBtn.classList.add('hidden');
             userMenu.classList.remove('hidden');
             if (userName) userName.textContent = user.nome.split(' ')[0];
+            // Procura o menu dropdown ou navbar para colocar o acesso ao painel
+            let adminLink = document.getElementById('admin-panel-link');
+            if (user.cargo === 'admin') {
+                if (!adminLink) {
+                    const dropdown = document.getElementById('user-dropdown');
+                    if (dropdown) {
+                        // Injeta um link estilizado dentro do seu menu de usuário existente
+                        dropdown.insertAdjacentHTML('afterbegin', `
+                            <a id="admin-panel-link" href="admin/index.html" class="block px-4 py-2 text-sm text-amber-600 font-semibold hover:bg-amber-50 border-b border-gray-100">
+                                ⚙️ Painel Admin
+                            </a>
+                        `);
+                    }
+                }
+            } else if (adminLink) {
+                adminLink.remove(); // Remove caso mude de conta
+            }
         } else {
             loginBtn.classList.remove('hidden');
             userMenu.classList.add('hidden');
